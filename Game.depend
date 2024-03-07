@@ -1,0 +1,65 @@
+# depslib dependency file v1.0
+1709780330 source:c:\users\hp victus\desktop\new folder\game\commonfile.cpp
+	<iostream>
+	"commonFile.h"
+
+1709794609 c:\users\hp victus\desktop\new folder\game\commonfile.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	<string>
+
+1709795453 source:c:\users\hp victus\desktop\new folder\game\main.cpp
+	<iostream>
+	"commonFile.h"
+	"BaseObject.h"
+
+1709780330 c:\users\hp victus\desktop\new folder\game\commonfile.cpp
+	<iostream>
+	"commonFile.h"
+
+1709781675 c:\users\hp victus\desktop\new folder\game\baseobject.cpp
+	<iostream>
+	"BaseObject.h"
+
+1709795151 c:\users\hp victus\desktop\new folder\game\baseobject.h
+	"commonFile.h"
+
+1709795157 source:c:\users\hp victus\desktop\new folder\game\baseobject.cpp
+	<iostream>
+	"BaseObject.h"
+
+1709822218 source:c:\users\hp victus\desktop\new folder\makingagame\baseobject.cpp
+	<iostream>
+	"BaseObject.h"
+
+1709795151 c:\users\hp victus\desktop\new folder\makingagame\baseobject.h
+	"commonFile.h"
+
+1709821587 c:\users\hp victus\desktop\new folder\makingagame\commonfile.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	<string>
+
+1709780330 source:c:\users\hp victus\desktop\new folder\makingagame\commonfile.cpp
+	<iostream>
+	"commonFile.h"
+
+1709820950 source:c:\users\hp victus\desktop\new folder\makingagame\main.cpp
+	<iostream>
+	"commonFile.h"
+	"BaseObject.h"
+
+1709822225 source:c:\users\hp victus\desktop\new folder\makingagame\gamemap.cpp
+	<iostream>
+	"gameMap.h"
+
+1709822243 c:\users\hp victus\desktop\new folder\makingagame\gamemap.h
+	"commonFile.h"
+	"BaseObject.h"
+
