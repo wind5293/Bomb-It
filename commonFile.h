@@ -13,7 +13,7 @@ static SDL_Renderer* gRenderer = NULL;
 static SDL_Event e;
 
 const int SCREEN_WIDTH = 1280;
-const int SCREEN_HEIGHT = 720;
+const int SCREEN_HEIGHT = 640;
 const std::string title = "SDL Project";
 
 const int COLOR_KEY_R = 167;

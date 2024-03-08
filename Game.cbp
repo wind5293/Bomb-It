@@ -35,6 +35,8 @@
 		<Unit filename="BaseObject.h" />
 		<Unit filename="commonFile.cpp" />
 		<Unit filename="commonFile.h" />
+		<Unit filename="gameMap.cpp" />
+		<Unit filename="gameMap.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

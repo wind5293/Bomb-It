@@ -1,6 +1,7 @@
 #include <iostream>
 #include "commonFile.h"
 #include "BaseObject.h"
+#include "gameMap.h"
 
 BaseObject gBackground;
 
@@ -47,7 +48,7 @@ bool init()
 
 bool loadBackground()
 {
-    bool ret = gBackground.loadMedia("viewport.png", gRenderer);
+    bool ret = gBackground.loadMedia("Untitled.png", gRenderer);
     return ret;
 }
 
@@ -76,6 +77,11 @@ int main(int argc, char* argv[])
     {
         std::cout << "Failed to load background!\n";
     }
+
+    gameMap game_map;
+    game_map.loadMap("map/map01.dat");
+    game_map.loadTile(gRenderer);
+
     bool isQuit = false;
     SDL_Event e;
     while (!isQuit){
@@ -90,6 +96,7 @@ int main(int argc, char* argv[])
         SDL_RenderClear(gRenderer);
 
         gBackground.render(gRenderer, NULL);
+        game_map.drawMap(gRenderer);
 
         SDL_RenderPresent(gRenderer);
     }
