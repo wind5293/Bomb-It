@@ -9,8 +9,8 @@
 class tileMat : public BaseObject
 {
 public:
-    tileMat();
-    ~tileMat();
+    tileMat() {;}
+    ~tileMat() {;}
 };
 
 class gameMap
@@ -24,7 +24,7 @@ public:
     void drawMap(SDL_Renderer* renderer);
 
 private:
-    Map game_map;
+    Map game_map_;
     tileMat tile_mat[MAX_TILES];
 };
 
