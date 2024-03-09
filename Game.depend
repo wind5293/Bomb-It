@@ -36,10 +36,10 @@
 	"commonFile.h"
 	"BaseObject.h"
 
-1709795151 c:\users\hp victus\desktop\new folder\makingagame\baseobject.h
+1709990317 c:\users\hp victus\desktop\new folder\makingagame\baseobject.h
 	"commonFile.h"
 
-1709909325 c:\users\hp victus\desktop\new folder\makingagame\commonfile.h
+1709994663 c:\users\hp victus\desktop\new folder\makingagame\commonfile.h
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
@@ -51,18 +51,27 @@
 	<iostream>
 	"commonFile.h"
 
-1709909331 source:c:\users\hp victus\desktop\new folder\makingagame\main.cpp
+1709994663 source:c:\users\hp victus\desktop\new folder\makingagame\main.cpp
 	<iostream>
 	"commonFile.h"
 	"BaseObject.h"
 	"gameMap.h"
+	"mainObject.h"
 
 1709908702 source:c:\users\hp victus\desktop\new folder\makingagame\gamemap.cpp
 	<iostream>
 	"gameMap.h"
 	<fstream>
 
-1709904059 c:\users\hp victus\desktop\new folder\makingagame\gamemap.h
+1709994687 c:\users\hp victus\desktop\new folder\makingagame\gamemap.h
 	"commonFile.h"
 	"BaseObject.h"
+
+1709994663 c:\users\hp victus\desktop\new folder\makingagame\mainobject.h
+	"commonFile.h"
+	"BaseObject.h"
+
+1709995507 source:c:\users\hp victus\desktop\new folder\makingagame\mainobject.cpp
+	<iostream>
+	"mainObject.h"
 

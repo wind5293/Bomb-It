@@ -22,7 +22,7 @@ public:
     {
         return p_object_;
     }
-    bool loadMedia(std::string path, SDL_Renderer* screen);
+    virtual bool loadMedia(std::string path, SDL_Renderer* screen);
     void render(SDL_Renderer* renderer, const SDL_Rect* rect_ = NULL);
     void Quit();
 };
