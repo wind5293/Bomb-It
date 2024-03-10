@@ -9,7 +9,8 @@ public:
     baseObject();
     ~baseObject();
 
-    void setRect(const int& x, const int &y) {rect_.x = x; rect_.y = y;};
+    void setRect(const int& x, const int& y) {rect_.x = x; rect_.y = y;}
+
     SDL_Rect getRect()
     {
         return rect_;
