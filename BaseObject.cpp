@@ -27,8 +27,8 @@ bool baseObject::loadMedia(std::string path, SDL_Renderer* renderer)
         texture = SDL_CreateTextureFromSurface(renderer, loadSurface);
         if (texture != NULL)
         {
-            rect_.w = SCREEN_WIDTH;
-            rect_.h = SCREEN_HEIGHT;
+            rect_.w = loadSurface->w;
+            rect_.h = loadSurface->h;
         }
         SDL_FreeSurface(loadSurface);
     }
