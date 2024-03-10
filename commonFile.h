@@ -12,18 +12,18 @@ static SDL_Window* gWindow = NULL;
 static SDL_Renderer* gRenderer = NULL;
 static SDL_Event e;
 
-const int SCREEN_WIDTH = 1280;
-const int SCREEN_HEIGHT = 640;
-const std::string title = "SDL Project";
+const int SCREEN_WIDTH = 1020;
+const int SCREEN_HEIGHT = 510;
+const std::string windowTitle = "Bomb It Project";
 
 const int COLOR_KEY_R = 167;
 const int COLOR_KEY_G = 175;
 const int COLOR_KEY_B = 180;
 
 #define BLANK_TILE 0
-#define TILE_SIZE 64
-#define MAX_MAP_X 400
-#define MAX_MAP_Y 10
+#define TILE_SIZE 51
+#define MAX_MAP_X 20
+#define MAX_MAP_Y 9
 
 typedef struct Map
 {
@@ -37,13 +37,4 @@ typedef struct Map
     char* fileName;
 };
 
-typedef struct Input
-{
-    int left_;
-    int right_;
-    int up_;
-    int down_;
-    int jump_;
-};
-
-#endif // COMMONFILE
+#endif // COMMON_FILE_H_
