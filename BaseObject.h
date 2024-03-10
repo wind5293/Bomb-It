@@ -3,28 +3,29 @@
 
 #include "commonFile.h"
 
-class BaseObject
+class baseObject
 {
-protected:
-    SDL_Texture* p_object_;
-    SDL_Rect rect_;
 public:
-    BaseObject();
-    ~BaseObject();
+    baseObject();
+    ~baseObject();
 
-    void setRect(const int& x, const int &y) {rect_.x = x; rect_.y = y;}
-
-    SDL_Rect getRect() const
+    void setRect(const int& x, const int &y) {rect_.x = x; rect_.y = y;};
+    SDL_Rect getRect()
     {
         return rect_;
     }
-    SDL_Texture* getObject() const
+    SDL_Texture* getObject()
     {
         return p_object_;
     }
-    virtual bool loadMedia(std::string path, SDL_Renderer* screen);
-    void render(SDL_Renderer* renderer, const SDL_Rect* rect_ = NULL);
+
+    bool loadMedia(std::string path, SDL_Renderer* renderer);
+    void render(SDL_Renderer* renderer, const SDL_Rect* clip = NULL);
     void Quit();
+
+private:
+    SDL_Texture* p_object_;
+    SDL_Rect rect_;
 };
 
-#endif // BASEOBJECT
+#endif // BASE_OBJECT_H_
