@@ -103,6 +103,8 @@ int main(int argc, char* argv[])
         //gBackground.render(gRenderer, NULL);
 
         SDL_RenderPresent(gRenderer);
+
+        SDL_Delay(50);
     }
     close();
     return 0;

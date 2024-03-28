@@ -31,6 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="MainObject.cpp" />
+		<Unit filename="MainObject.h" />
 		<Unit filename="baseObject.cpp" />
 		<Unit filename="baseObject.h" />
 		<Unit filename="commonFile.cpp" />
