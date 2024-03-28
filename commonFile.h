@@ -37,4 +37,12 @@ typedef struct Map
     char* fileName;
 };
 
+typedef struct Input
+{
+    int left_;
+    int right_;
+    int up_;
+    int down_;
+};
+
 #endif // COMMON_FILE_H_

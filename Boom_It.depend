@@ -3,7 +3,7 @@
 	<iostream>
 	"commonFile.h"
 
-1710170902 c:\users\hp victus\desktop\bigproject\boom-it\commonfile.h
+1711639419 c:\users\hp victus\desktop\bigproject\boom-it\commonfile.h
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
@@ -11,7 +11,7 @@
 	<SDL_mixer.h>
 	<string>
 
-1710081520 source:c:\users\hp victus\desktop\bigproject\boom-it\main.cpp
+1711639419 source:c:\users\hp victus\desktop\bigproject\boom-it\main.cpp
 	<iostream>
 	"commonFile.h"
 	"baseObject.h"
@@ -21,7 +21,7 @@
 	<iostream>
 	"baseObject.h"
 
-1710080192 c:\users\hp victus\desktop\bigproject\boom-it\baseobject.h
+1711640214 c:\users\hp victus\desktop\bigproject\boom-it\baseobject.h
 	"commonFile.h"
 
 1710081685 source:c:\users\hp victus\desktop\bigproject\boom-it\gamemap.cpp
@@ -30,6 +30,14 @@
 	"gameMap.h"
 
 1710077465 c:\users\hp victus\desktop\bigproject\boom-it\gamemap.h
+	"commonFile.h"
+	"baseObject.h"
+
+1711640653 source:c:\users\hp victus\desktop\bigproject\boom-it\mainobject.cpp
+	<iostream>
+	"MainObject.h"
+
+1711640049 c:\users\hp victus\desktop\bigproject\boom-it\mainobject.h
 	"commonFile.h"
 	"baseObject.h"
 

@@ -20,11 +20,11 @@ public:
         return p_object_;
     }
 
-    bool loadMedia(std::string path, SDL_Renderer* renderer);
+    virtual bool loadMedia(std::string path, SDL_Renderer* renderer);
     void render(SDL_Renderer* renderer, const SDL_Rect* clip = NULL);
     void Quit();
 
-private:
+protected:
     SDL_Texture* p_object_;
     SDL_Rect rect_;
 };
