@@ -20,7 +20,7 @@ MainObject::~MainObject()
 
 bool MainObject::loadMedia(std::string path, SDL_Renderer* renderer)
 {
-    bool ret = loadMedia(path, renderer);
+    bool ret = baseObject::loadMedia(path, renderer);
     if (ret)
     {
         width_frame_ = rect_.w / 8;
@@ -79,15 +79,16 @@ void MainObject::Show(SDL_Renderer* renderer)
 {
     if (status_ == WALK_LEFT)
     {
-        loadMedia("img/player_left.png", renderer);
+        loadMedia("player_left.png", renderer);
     }
     else if (status_ == WALK_RIGHT)
     {
-        loadMedia("img/player_right.png", renderer);
+        loadMedia("player_right.png", renderer);
     }
     if (input_type_.left_ == 1 || input_type_.right_ == 1)
     {
         frame_++;
+        if (frame_ == 8) frame_ = 0;
     }
     else frame_ = 0;
 

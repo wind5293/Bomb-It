@@ -2,6 +2,7 @@
 #include "commonFile.h"
 #include "baseObject.h"
 #include "gameMap.h"
+#include "MainObject.h"
 
 baseObject gBackground;
 
@@ -84,16 +85,22 @@ int main(int argc, char* argv[])
     game_map.loadMap("map/map_data.dat");
     game_map.loadTile(gRenderer);
 
+    MainObject p_player_;
+    p_player_.loadMedia("img/player_left.png", gRenderer);
+    p_player_.SetClip();
+
     bool isQuit = false;
     while (!isQuit)
     {
-        while (SDL_PollEvent(&e))
+        while (SDL_PollEvent(&events))
         {
-            if (e.type == SDL_QUIT)
+            if (events.type == SDL_QUIT)
             {
                 isQuit = true;
             }
+            p_player_.HandleInputAction(events, gRenderer);
         }
+
         SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderClear(gRenderer);
 
@@ -101,6 +108,8 @@ int main(int argc, char* argv[])
 
         game_map.drawMap(gRenderer);
         //gBackground.render(gRenderer, NULL);
+
+        p_player_.Show(gRenderer);
 
         SDL_RenderPresent(gRenderer);
 
