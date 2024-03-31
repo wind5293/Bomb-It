@@ -10,7 +10,7 @@
 
 static SDL_Window* gWindow = NULL;
 static SDL_Renderer* gRenderer = NULL;
-static SDL_Event e;
+static SDL_Event events;
 
 const int SCREEN_WIDTH = 1020;
 const int SCREEN_HEIGHT = 510;
