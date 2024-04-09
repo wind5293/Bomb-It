@@ -1,6 +1,9 @@
 #include <iostream>
 #include "MainObject.h"
 
+#define PLAYER_SPEED 8
+#define BLANK_TILE 0
+
 MainObject::MainObject()
 {
     frame_ = 0;
@@ -11,6 +14,10 @@ MainObject::MainObject()
     width_frame_ = 0;
     height_frame_ = 0;
     status_ = -1;
+    input_type_.left_ = 0;
+    input_type_.down_ = 0;
+    input_type_.right_ = 0;
+    input_type_.up_ = 0;
 }
 
 MainObject::~MainObject()
@@ -79,11 +86,11 @@ void MainObject::Show(SDL_Renderer* renderer)
 {
     if (status_ == WALK_LEFT)
     {
-        loadMedia("player_left.png", renderer);
+        loadMedia("img/player_left.png", renderer);
     }
     else if (status_ == WALK_RIGHT)
     {
-        loadMedia("player_right.png", renderer);
+        loadMedia("img/player_right.png", renderer);
     }
     if (input_type_.left_ == 1 || input_type_.right_ == 1)
     {
@@ -160,6 +167,119 @@ void MainObject::HandleInputAction(SDL_Event events, SDL_Renderer* renderer)
             break;
         }
     }
+}
+
+void MainObject::doPlayer(Map& map_data_)
+{
+    x_val_ = 0;
+    y_val_ = 0;
+
+    if (input_type_.left_ == 1)
+    {
+        x_val_ -= PLAYER_SPEED;
+    }
+    else if (input_type_.right_ == 1)
+    {
+        x_val_ += PLAYER_SPEED;
+    }
+    else if (input_type_.up_ == 1)
+    {
+        y_val_ -= PLAYER_SPEED;
+    }
+    else if (input_type_.down_ == 1)
+    {
+        y_val_ += PLAYER_SPEED;
+    }
+
+    //checkToMap(map_data_);
+    x_pos_ += x_val_;
+    y_pos_ += y_val_;
+}
+
+void MainObject::checkToMap(Map& map_data)
+{
+    int x1 = 0;
+    int x2 = 0;
+
+    int y1 = 0;
+    int y2 = 0;
+
+    //Check horizontal
+    int height_min = (height_frame_ < TILE_SIZE ? height_frame_ : TILE_SIZE);
+
+    x1 = (x_pos_ + x_val_) / TILE_SIZE;
+    x2 = (x_pos_ + x_val_ + width_frame_ - 1) / TILE_SIZE;
+
+    y1 = y_pos_ / TILE_SIZE;
+    y2 = (y_pos_ + height_min - 1) / TILE_SIZE;
+
+    if (x1 >= 0 && x2 < MAX_MAP_X && y1 >= 0 && y2 < MAX_MAP_Y)
+    {
+        if (x_val_ > 0) //main object is moving to right
+        {
+            int val1 = map_data.tile[y1][x2];
+            int val2 = map_data.tile[y2][x2];
+
+            if (val1 != BLANK_TILE || val2 != BLANK_TILE)
+            {
+                x_pos_ = x2 * TILE_SIZE;
+                x_pos_ -= width_frame_ + 1;
+                x_val_ = 0;
+            }
+        }
+        else if (x_val_ < 0)
+        {
+            int val1 = map_data.tile[y1][x1];
+            int val2 = map_data.tile[y2][x1];
+
+            if (val1 != BLANK_TILE || val2 != BLANK_TILE)
+            {
+                x_pos_ = (x1 + 1) * TILE_SIZE;
+                x_val_ = 0;
+            }
+        }
+    }
+
+    //check vertical
+    int width_min_ = width_frame_ < TILE_SIZE ? width_frame_ : TILE_SIZE;
+    x1 = x_pos_ / TILE_SIZE;
+    x2 = (x_pos_ + width_min_) / TILE_SIZE;
+
+    y1 = (y_pos_ + y_val_) / TILE_SIZE;
+    y2 = (y_pos_ + y_val_ + height_frame_ - 1) / TILE_SIZE;
+
+    if (x1 >= 0 && x2 < MAX_MAP_X && y1 >= 0 && y2 < MAX_MAP_Y) //Object is inside the map
+    {
+        if (y_val_ > 0)
+        {
+            int val1 = map_data.tile[y2][x1];
+            int val2 = map_data.tile[y2][x2];
+
+            if (val1 != BLANK_TILE || val2 != BLANK_TILE)
+            {
+                y_pos_ = y2 * TILE_SIZE;
+                y_pos_ -= height_frame_;
+                y_val_ = 0;
+            }
+        }
+        else if (y_val_ < 0)
+        {
+            int val1 = map_data.tile[y1][x1];
+            int val2 = map_data.tile[y1][x2];
+
+            if (val1 != BLANK_TILE && val2 != BLANK_TILE)
+            {
+                y_pos_ = (y1 + 1) * TILE_SIZE;
+                y_val_ = 0;
+            }
+        }
+    }
+
+    x_pos_ += x_val_;
+    y_pos_ += y_val_;
+
+    if (x_pos_ < 0) x_pos_ = 0;
+    else if (x_pos_ + width_frame_ > map_data.max_x_) x_pos_ = map_data.max_x_ - width_frame_ - 1;
 }
 
 //void MainObject::updateImagePlayer(SDL_Renderer* renderer)

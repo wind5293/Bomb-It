@@ -103,12 +103,13 @@ int main(int argc, char* argv[])
 
         SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderClear(gRenderer);
+        Map map_data = game_map.getMap();
 
         gBackground.render(gRenderer, NULL);
 
         game_map.drawMap(gRenderer);
-        //gBackground.render(gRenderer, NULL);
 
+        p_player_.doPlayer(map_data);
         p_player_.Show(gRenderer);
 
         SDL_RenderPresent(gRenderer);
