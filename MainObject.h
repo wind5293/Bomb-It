@@ -22,7 +22,8 @@ public:
     void HandleInputAction(SDL_Event events, SDL_Renderer* renderer);
     void SetClip();
 
-
+    void doPlayer(Map& map_data_);
+    void checkToMap(Map& map_data_);
     void updateImagePlayer(SDL_Renderer* renderer);
 
 private:
