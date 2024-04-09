@@ -191,9 +191,7 @@ void MainObject::doPlayer(Map& map_data_)
         y_val_ += PLAYER_SPEED;
     }
 
-    //checkToMap(map_data_);
-    x_pos_ += x_val_;
-    y_pos_ += y_val_;
+    checkToMap(map_data_);
 }
 
 void MainObject::checkToMap(Map& map_data)
@@ -267,7 +265,7 @@ void MainObject::checkToMap(Map& map_data)
             int val1 = map_data.tile[y1][x1];
             int val2 = map_data.tile[y1][x2];
 
-            if (val1 != BLANK_TILE && val2 != BLANK_TILE)
+            if (val1 != BLANK_TILE || val2 != BLANK_TILE)
             {
                 y_pos_ = (y1 + 1) * TILE_SIZE;
                 y_val_ = 0;
@@ -277,9 +275,6 @@ void MainObject::checkToMap(Map& map_data)
 
     x_pos_ += x_val_;
     y_pos_ += y_val_;
-
-    if (x_pos_ < 0) x_pos_ = 0;
-    else if (x_pos_ + width_frame_ > map_data.max_x_) x_pos_ = map_data.max_x_ - width_frame_ - 1;
 }
 
 //void MainObject::updateImagePlayer(SDL_Renderer* renderer)
