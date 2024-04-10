@@ -20,6 +20,8 @@ const int COLOR_KEY_R = 167;
 const int COLOR_KEY_G = 175;
 const int COLOR_KEY_B = 180;
 
+const int FRAME_PER_SECOND = 25;
+
 #define BLANK_TILE 0
 #define TILE_SIZE 51
 #define MAX_MAP_X 20
