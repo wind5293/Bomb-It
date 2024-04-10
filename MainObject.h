@@ -26,7 +26,10 @@ public:
     void checkToMap(Map& map_data_);
     void updateImagePlayer(SDL_Renderer* renderer);
 
-private:
+    void set_x_pos_(float xPos) {x_pos_ = xPos;}
+    void set_y_pos_(float yPos) {y_pos_ = yPos;}
+
+protected:
     float x_val_;
     float y_val_;
 
