@@ -3,6 +3,7 @@
 #include "baseObject.h"
 #include "gameMap.h"
 #include "MainObject.h"
+#include "ImpTimer.h"
 
 baseObject gBackground;
 
@@ -70,6 +71,8 @@ void close()
 
 int main(int argc, char* argv[])
 {
+    ImpTimer fps_timer;
+
     if (!init())
     {
         std::cout << "Failed to initialize!" << std::endl;
@@ -92,6 +95,8 @@ int main(int argc, char* argv[])
     bool isQuit = false;
     while (!isQuit)
     {
+        fps_timer.start();
+
         while (SDL_PollEvent(&events))
         {
             if (events.type == SDL_QUIT)
@@ -114,7 +119,13 @@ int main(int argc, char* argv[])
 
         SDL_RenderPresent(gRenderer);
 
-        SDL_Delay(50);
+        int real_imp_time = fps_timer.getTicks();
+        int time_one_flame = 1000 / FRAME_PER_SECOND; //ms
+        if (real_imp_time < time_one_flame)
+        {
+            int delay_time = time_one_flame - real_imp_time;
+            SDL_Delay(delay_time);
+        }
     }
     close();
     return 0;

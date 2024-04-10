@@ -3,7 +3,7 @@
 	<iostream>
 	"commonFile.h"
 
-1711866274 c:\users\hp victus\desktop\bigproject\boom-it\commonfile.h
+1712755718 c:\users\hp victus\desktop\bigproject\boom-it\commonfile.h
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
@@ -34,11 +34,18 @@
 	"commonFile.h"
 	"baseObject.h"
 
-1712655360 source:c:\users\hp victus\desktop\bigproject\boom-it\mainobject.cpp
+1712755692 source:c:\users\hp victus\desktop\bigproject\boom-it\mainobject.cpp
 	<iostream>
 	"MainObject.h"
 
 1712650436 c:\users\hp victus\desktop\bigproject\boom-it\mainobject.h
 	"commonFile.h"
 	"baseObject.h"
+
+1712754853 source:c:\users\hp victus\desktop\bigproject\boom-it\imptimer.cpp
+	<iostream>
+	"ImpTimer.h"
+
+1712754853 c:\users\hp victus\desktop\bigproject\boom-it\imptimer.h
+	"commonFile.h"
 

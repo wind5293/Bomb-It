@@ -275,6 +275,7 @@ void MainObject::checkToMap(Map& map_data)
 
     x_pos_ += x_val_;
     y_pos_ += y_val_;
+
 }
 
 //void MainObject::updateImagePlayer(SDL_Renderer* renderer)
