@@ -4,6 +4,8 @@
 #include "gameMap.h"
 #include "MainObject.h"
 #include "ImpTimer.h"
+#include "Player1.h"
+#include "Player2.h"
 
 baseObject gBackground;
 
@@ -88,9 +90,13 @@ int main(int argc, char* argv[])
     game_map.loadMap("map/map_data.dat");
     game_map.loadTile(gRenderer);
 
-    MainObject p_player_;
-    p_player_.loadMedia("img/player_left.png", gRenderer);
-    p_player_.SetClip();
+    Player1 p_player_1_;
+    p_player_1_.loadMedia("img/player_left.png", gRenderer);
+    p_player_1_.SetClip();
+
+    Player2 p_player_2_;
+    p_player_2_.loadMedia("img/player_right.png", gRenderer);
+    p_player_2_.SetClip();
 
     bool isQuit = false;
     while (!isQuit)
@@ -103,7 +109,8 @@ int main(int argc, char* argv[])
             {
                 isQuit = true;
             }
-            p_player_.HandleInputAction(events, gRenderer);
+            p_player_1_.HandleInputAction(events, gRenderer);
+            p_player_2_.HandleInputAction(events, gRenderer);
         }
 
         SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -114,8 +121,11 @@ int main(int argc, char* argv[])
 
         game_map.drawMap(gRenderer);
 
-        p_player_.doPlayer(map_data);
-        p_player_.Show(gRenderer);
+        p_player_1_.doPlayer(map_data);
+        p_player_1_.Show(gRenderer);
+
+        p_player_2_.doPlayer(map_data);
+        p_player_2_.Show(gRenderer);
 
         SDL_RenderPresent(gRenderer);
 
