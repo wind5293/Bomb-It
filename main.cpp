@@ -96,6 +96,8 @@ int main(int argc, char* argv[])
 
     Player2 p_player_2_;
     p_player_2_.loadMedia("img/player_right.png", gRenderer);
+    p_player_2_.set_x_pos_(SCREEN_WIDTH - p_player_1_.get_width_frame_() - 1);
+    p_player_2_.set_y_pos_(SCREEN_HEIGHT - p_player_1_.get_height_frame_() - 1);
     p_player_2_.SetClip();
 
     bool isQuit = false;

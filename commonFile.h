@@ -47,4 +47,9 @@ typedef struct Input
     int down_;
 };
 
+namespace SDLCommonFunc
+{
+    bool CheckCollision(const SDL_Rect& object1, const SDL_Rect& object2);
+}
+
 #endif // COMMON_FILE_H_
