@@ -29,6 +29,9 @@ public:
     void set_x_pos_(float xPos) {x_pos_ = xPos;}
     void set_y_pos_(float yPos) {y_pos_ = yPos;}
 
+    int get_width_frame_() {return width_frame_;}
+    int get_height_frame_() {return height_frame_;}
+
 protected:
     float x_val_;
     float y_val_;

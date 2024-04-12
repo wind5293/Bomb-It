@@ -69,4 +69,11 @@ void Player1::HandleInputAction(SDL_Event events, SDL_Renderer* renderer)
             break;
         }
     }
+    if(events.type == SDL_KEYDOWN)
+    {
+        if (events.key.keysym.sym == SDLK_r)
+        {
+            std::cout << "Player 1 placed a bomb" << std::endl;
+        }
+    }
 }

@@ -31,10 +31,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="BombObject.cpp" />
+		<Unit filename="BombObject.h" />
 		<Unit filename="ImpTimer.cpp" />
 		<Unit filename="ImpTimer.h" />
 		<Unit filename="MainObject.cpp" />
 		<Unit filename="MainObject.h" />
+		<Unit filename="Player1.cpp" />
+		<Unit filename="Player1.h" />
+		<Unit filename="Player2.cpp" />
+		<Unit filename="Player2.h" />
 		<Unit filename="baseObject.cpp" />
 		<Unit filename="baseObject.h" />
 		<Unit filename="commonFile.cpp" />
