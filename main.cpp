@@ -100,6 +100,8 @@ int main(int argc, char* argv[])
     p_player_2_.set_y_pos_(SCREEN_HEIGHT - p_player_1_.get_height_frame_() - 1);
     p_player_2_.SetClip();
 
+
+
     bool isQuit = false;
     while (!isQuit)
     {
@@ -123,6 +125,7 @@ int main(int argc, char* argv[])
 
         game_map.drawMap(gRenderer);
 
+        p_player_1_.HandleBomb(gRenderer);
         p_player_1_.doPlayer(map_data);
         p_player_1_.Show(gRenderer);
 

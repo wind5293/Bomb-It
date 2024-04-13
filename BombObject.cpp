@@ -1,18 +1,21 @@
-#ifndef BOMB_OBJECT_H_
-#define BOMB_OBJECT_H_
 
-#include "commonFile.h"
-#include "baseObject.h"
+#include <iostream>
+#include "BombObject.h"
 
-class BombObject : public baseObject
+BombObject::BombObject()
 {
-public:
-    BombObject();
-    ~BombObject();
+    is_placed_ = false;
+}
 
-private:
-    int frame_width_;
-    int frame_height;
-};
+BombObject::~BombObject()
+{
 
-#endif // BOMB_OBJECT_H_
+}
+
+bool BombObject::loadImageBomb(SDL_Renderer* renderer)
+{
+    bool ret = false;
+    ret = baseObject::loadMedia("img//bomb.png", renderer);
+
+    return ret;
+}
