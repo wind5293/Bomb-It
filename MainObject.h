@@ -1,8 +1,10 @@
 #ifndef MAIN_OBJECT_H_
 #define MAIN_OBJECT_H_
 
+#include <vector>
 #include "commonFile.h"
 #include "baseObject.h"
+#include "BombObject.h"
 
 class MainObject : public baseObject
 {

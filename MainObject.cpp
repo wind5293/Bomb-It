@@ -109,65 +109,65 @@ void MainObject::Show(SDL_Renderer* renderer)
     SDL_RenderCopy(renderer, p_object_, current_clip, &renderQuad);
 }
 
-void MainObject::HandleInputAction(SDL_Event events, SDL_Renderer* renderer)
-{
-    if (events.type == SDL_KEYDOWN)
-    {
-        switch(events.key.keysym.sym)
-        {
-        case SDLK_a:
-            status_ = WALK_LEFT;
-            input_type_.left_ = 1;
-            input_type_.right_ = 0;
-            input_type_.down_ = 0;
-            input_type_.up_ = 0;
-            break;
-        case SDLK_d:
-            status_ = WALK_RIGHT;
-            input_type_.left_ = 0;
-            input_type_.right_ = 1;
-            input_type_.down_ = 0;
-            input_type_.up_ = 0;
-            break;
-        case SDLK_w:
-            status_ = WALK_UP;
-            input_type_.left_ = 0;
-            input_type_.right_ = 0;
-            input_type_.down_ = 0;
-            input_type_.up_ = 1;
-            break;
-        case SDLK_s:
-            status_ = WALK_DOWN;
-            input_type_.left_ = 0;
-            input_type_.right_ = 0;
-            input_type_.down_ = 1;
-            input_type_.up_ = 0;
-            break;
-        default:
-            break;
-        }
-    }
-    else if (events.type == SDL_KEYUP)
-    {
-        switch(events.key.keysym.sym)
-        {
-        case SDLK_a:
-            input_type_.left_ = 0;
-            break;
-        case SDLK_d:
-            input_type_.right_ = 0;
-            break;
-        case SDLK_w:
-            input_type_.up_ = 0;
-            break;
-        case SDLK_s:
-            input_type_.down_ = 0;
-            break;
-        default:
-            break;
-        }
-    }
-}
+//void MainObject::HandleInputAction(SDL_Event events, SDL_Renderer* renderer)
+//{
+//    if (events.type == SDL_KEYDOWN)
+//    {
+//        switch(events.key.keysym.sym)
+//        {
+//        case SDLK_a:
+//            status_ = WALK_LEFT;
+//            input_type_.left_ = 1;
+//            input_type_.right_ = 0;
+//            input_type_.down_ = 0;
+//            input_type_.up_ = 0;
+//            break;
+//        case SDLK_d:
+//            status_ = WALK_RIGHT;
+//            input_type_.left_ = 0;
+//            input_type_.right_ = 1;
+//            input_type_.down_ = 0;
+//            input_type_.up_ = 0;
+//            break;
+//        case SDLK_w:
+//            status_ = WALK_UP;
+//            input_type_.left_ = 0;
+//            input_type_.right_ = 0;
+//            input_type_.down_ = 0;
+//            input_type_.up_ = 1;
+//            break;
+//        case SDLK_s:
+//            status_ = WALK_DOWN;
+//            input_type_.left_ = 0;
+//            input_type_.right_ = 0;
+//            input_type_.down_ = 1;
+//            input_type_.up_ = 0;
+//            break;
+//        default:
+//            break;
+//        }
+//    }
+//    else if (events.type == SDL_KEYUP)
+//    {
+//        switch(events.key.keysym.sym)
+//        {
+//        case SDLK_a:
+//            input_type_.left_ = 0;
+//            break;
+//        case SDLK_d:
+//            input_type_.right_ = 0;
+//            break;
+//        case SDLK_w:
+//            input_type_.up_ = 0;
+//            break;
+//        case SDLK_s:
+//            input_type_.down_ = 0;
+//            break;
+//        default:
+//            break;
+//        }
+//    }
+//}
 
 void MainObject::doPlayer(Map& map_data_)
 {
@@ -278,28 +278,3 @@ void MainObject::checkToMap(Map& map_data)
 
 }
 
-//void MainObject::updateImagePlayer(SDL_Renderer* renderer)
-//{
-//    if (on_ground_ == true)
-//    {
-//        if (status_ == WALK_LEFT)
-//        {
-//            loadMedia("img/player_left.png", renderer);
-//        }
-//        else if (status_ == WALK_RIGHT)
-//        {
-//            loadMedia("img/player_right.png", renderer);
-//        }
-//    }
-//    else
-//    {
-//        if (status_ == WALK_LEFT)
-//        {
-//            loadMedia("img/jump_left.png", renderer);
-//        }
-//        else
-//        {
-//            loadMedia("img/jump_right.png", renderer);
-//        }
-//    }
-//}
