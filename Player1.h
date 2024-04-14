@@ -16,13 +16,13 @@ public:
 
     void set_bomb_list(std::vector<BombObject*> bomb_list)
     {
-        p_bomb_list_ = bomb_list;
+        p_bomb_list_1 = bomb_list;
     }
-    std::vector<BombObject*> get_bomb_list() const { return p_bomb_list_; }
+    std::vector<BombObject*> get_bomb_list() const { return p_bomb_list_1; }
     void HandleBomb(SDL_Renderer* renderer);
 
 private:
-    std::vector <BombObject*> p_bomb_list_;
+    std::vector <BombObject*> p_bomb_list_1;
 };
 
 #endif // PLAYER_1_H_
