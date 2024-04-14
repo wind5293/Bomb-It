@@ -129,6 +129,7 @@ int main(int argc, char* argv[])
         p_player_1_.doPlayer(map_data);
         p_player_1_.Show(gRenderer);
 
+        p_player_2_.HandleBomb(gRenderer);
         p_player_2_.doPlayer(map_data);
         p_player_2_.Show(gRenderer);
 
