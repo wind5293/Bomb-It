@@ -100,8 +100,6 @@ int main(int argc, char* argv[])
     p_player_2_.set_y_pos_(SCREEN_HEIGHT - p_player_1_.get_height_frame_() - 1);
     p_player_2_.SetClip();
 
-
-
     bool isQuit = false;
     while (!isQuit)
     {
@@ -132,6 +130,16 @@ int main(int argc, char* argv[])
         p_player_2_.HandleBomb(gRenderer);
         p_player_2_.doPlayer(map_data);
         p_player_2_.Show(gRenderer);
+
+        std::vector<BombObject*> bomb_arr_1 = p_player_1_.get_bomb_list();
+        for (int i = 0; i < bomb_arr_1.size(); i++)
+        {
+            BombObject* p_bomb = bomb_arr_1.at(i);
+            if (p_bomb != NULL)
+            {
+
+            }
+        }
 
         SDL_RenderPresent(gRenderer);
 

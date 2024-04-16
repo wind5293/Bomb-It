@@ -101,6 +101,8 @@ void Player2::HandleBomb(SDL_Renderer* renderer)
             }
             else {
                 p_bomb_list_2.erase(p_bomb_list_2.begin() + i);
+
+
                 if (p_bomb_ != NULL)
                 {
                     delete p_bomb_;
