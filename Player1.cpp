@@ -73,13 +73,12 @@ void Player1::HandleInputAction(SDL_Event events, SDL_Renderer* renderer)
     {
         if (events.key.keysym.sym == SDLK_r)
         {
-            std::cout << "Player 1 placed a bomb" << std::endl;
             BombObject* p_bomb = new BombObject();
             p_bomb->loadImageBomb(renderer);
             p_bomb->setRect(this->rect_.x / TILE_SIZE * TILE_SIZE, this->rect_.y / TILE_SIZE * TILE_SIZE);
             p_bomb->set_is_placed(true);
 
-            if (p_bomb_list_1.size() <= 3)
+            if (p_bomb_list_1.size() <= 5)
                 p_bomb_list_1.push_back(p_bomb);
         }
     }
@@ -98,6 +97,7 @@ void Player1::HandleBomb(SDL_Renderer* renderer)
             }
             else {
                 p_bomb_list_1.erase(p_bomb_list_1.begin() + i);
+
                 if (p_bomb_ != NULL)
                 {
                     delete p_bomb_;
@@ -107,3 +107,4 @@ void Player1::HandleBomb(SDL_Renderer* renderer)
         }
     }
 }
+

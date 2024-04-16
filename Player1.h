@@ -20,9 +20,11 @@ public:
     }
     std::vector<BombObject*> get_bomb_list() const { return p_bomb_list_1; }
     void HandleBomb(SDL_Renderer* renderer);
+    void exploreBomb(SDL_Renderer* renderer);
 
 private:
-    std::vector <BombObject*> p_bomb_list_1;
+    std::vector<BombObject*> p_bomb_list_1;
+
 };
 
 #endif // PLAYER_1_H_

@@ -14,9 +14,12 @@ public:
     bool get_is_placed() const {return is_placed_;}
 
     bool loadImageBomb(SDL_Renderer* renderer);
-
+    //void explored();
 private:
     bool is_placed_;
+    //bool is_explored_;
+
+    int explosion_time_;
 };
 
 #endif // BOMB_OBJECT_H_
