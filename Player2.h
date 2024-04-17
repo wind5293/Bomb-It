@@ -4,6 +4,7 @@
 
 #include "commonFile.h"
 #include "MainObject.h"
+#include "Explosion.h"
 
 class Player2 : public MainObject
 {
@@ -21,6 +22,7 @@ public:
 
 private:
     std::vector <BombObject*> p_bomb_list_2;
+    std::vector <int> time_to_explore_;
 };
 
 #endif // PLAYER_2asd_H_

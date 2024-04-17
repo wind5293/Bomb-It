@@ -79,7 +79,11 @@ void Player1::HandleInputAction(SDL_Event events, SDL_Renderer* renderer)
             p_bomb->set_is_placed(true);
 
             if (p_bomb_list_1.size() <= 5)
+            {
                 p_bomb_list_1.push_back(p_bomb);
+                int timeToExplore = 30;
+                time_to_explore_.push_back(timeToExplore);
+            }
         }
     }
 }
@@ -105,6 +109,27 @@ void Player1::HandleBomb(SDL_Renderer* renderer)
                 }
             }
         }
+        if (time_to_explore_[i] == 0)
+        {
+            ExplosionObject exp_obj;
+
+            exp_obj.loadMedia("img/exp3.png", renderer);
+            exp_obj.setClip();
+            exp_obj.setRect(p_bomb_->getRect().x, p_bomb_->getRect().y);
+            exp_obj.Show(renderer);
+
+            p_bomb_list_1.erase(p_bomb_list_1.begin() + i);
+            if (p_bomb_ != NULL)
+            {
+                delete p_bomb_;
+                p_bomb_ = NULL;
+            }
+        }
+        else {
+            time_to_explore_[i]--;
+        }
     }
 }
+
+
 
