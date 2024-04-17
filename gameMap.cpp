@@ -89,7 +89,7 @@ void gameMap::drawMap(SDL_Renderer* renderer) //Wrong something here
         {
             int val = game_map_.tile[map_y][map_x];
             //std::cout << map_y << " " << map_x << " ";
-            if (val >= 0)
+            if (val >= 1)
             {
                 tile_mat[val].setRect(j, i);
                 tile_mat[val].render(renderer);

@@ -12,8 +12,8 @@ static SDL_Window* gWindow = NULL;
 static SDL_Renderer* gRenderer = NULL;
 static SDL_Event events;
 
-const int SCREEN_WIDTH = 1020;
-const int SCREEN_HEIGHT = 510;
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 640;
 const std::string windowTitle = "Bomb It Project";
 
 const int COLOR_KEY_R = 167;
@@ -23,7 +23,7 @@ const int COLOR_KEY_B = 180;
 const int FRAME_PER_SECOND = 25;
 
 #define BLANK_TILE 0
-#define TILE_SIZE 51
+#define TILE_SIZE 64
 #define MAX_MAP_X 20
 #define MAX_MAP_Y 10
 
