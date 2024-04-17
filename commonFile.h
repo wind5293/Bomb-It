@@ -2,11 +2,13 @@
 #define COMMON_FILE_H_
 
 #include <iostream>
+#include <windows.h>
+#include <string>
+#include <vector>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
-#include <string>
 
 static SDL_Window* gWindow = NULL;
 static SDL_Renderer* gRenderer = NULL;

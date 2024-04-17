@@ -114,12 +114,35 @@ void Player2::HandleBomb(SDL_Renderer* renderer)
         }
         if (time_to_explore_[i] == 0)
         {
-            ExplosionObject exp_obj;
+            std::vector<ExplosionObject> exp_obj(5);
+            for (int i = 0; i < 5; i++)
+            {
+                exp_obj[i].loadMedia("img/exp3.png", renderer);
+                exp_obj[i].setClip();
+            }
 
-            exp_obj.loadMedia("img/exp3.png", renderer);
-            exp_obj.setClip();
-            exp_obj.setRect(p_bomb_->getRect().x, p_bomb_->getRect().y);
-            exp_obj.Show(renderer);
+            for (int ex = 0; ex < NUM_FRAME_EXP; ex++)
+            {
+                exp_obj[0].setRect(p_bomb_->getRect().x, p_bomb_->getRect().y);
+                exp_obj[0].setFrame(ex);
+                exp_obj[0].Show(renderer);
+
+                exp_obj[1].setRect(p_bomb_->getRect().x - TILE_SIZE, p_bomb_->getRect().y);
+                exp_obj[1].setFrame(ex);
+                exp_obj[1].Show(renderer);
+
+                exp_obj[2].setRect(p_bomb_->getRect().x + TILE_SIZE, p_bomb_->getRect().y);
+                exp_obj[2].setFrame(ex);
+                exp_obj[2].Show(renderer);
+
+                exp_obj[3].setRect(p_bomb_->getRect().x, p_bomb_->getRect().y - TILE_SIZE);
+                exp_obj[3].setFrame(ex);
+                exp_obj[3].Show(renderer);
+
+                exp_obj[4].setRect(p_bomb_->getRect().x, p_bomb_->getRect().y + TILE_SIZE);
+                exp_obj[4].setFrame(ex);
+                exp_obj[4].Show(renderer);
+            }
 
             p_bomb_list_2.erase(p_bomb_list_2.begin() + i);
             if (p_bomb_ != NULL)

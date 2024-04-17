@@ -139,7 +139,29 @@ int main(int argc, char* argv[])
             BombObject* p_bomb = bomb_arr_1.at(i);
             if (p_bomb != NULL)
             {
+                SDL_Rect tRect;
+                tRect.x = p_bomb->getRect().x;
+                tRect.y = p_bomb->getRect().y;
+                tRect.w = p_bomb->getRect().w;
+                tRect.h = p_bomb->getRect().h;
 
+                SDL_Rect pRect = p_player_2_.getRect();
+
+                bool bCol = SDLCommonFunc::CheckCollision(tRect, pRect);
+
+                if (bCol == true)
+                {
+                    int result = MessageBoxW(NULL, L"GAME OVER", L"Info", MB_OK | MB_ICONINFORMATION);
+                    if (result == IDOK)
+                    {
+                        p_player_1_.Quit();
+                        p_player_2_.Quit();
+                        close();
+                        SDL_Quit();
+
+                        return 0;
+                    }
+                }
             }
         }
 
