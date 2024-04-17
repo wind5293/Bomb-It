@@ -92,12 +92,14 @@ int main(int argc, char* argv[])
 
     Player1 p_player_1_;
     p_player_1_.loadMedia("img/player_left.png", gRenderer);
+    p_player_1_.set_x_pos_(TILE_SIZE);
+    p_player_1_.set_y_pos_(TILE_SIZE);
     p_player_1_.SetClip();
 
     Player2 p_player_2_;
     p_player_2_.loadMedia("img/player_right.png", gRenderer);
-    p_player_2_.set_x_pos_(SCREEN_WIDTH - p_player_1_.get_width_frame_() - 1);
-    p_player_2_.set_y_pos_(SCREEN_HEIGHT - p_player_1_.get_height_frame_() - 1);
+    p_player_2_.set_x_pos_(SCREEN_WIDTH - TILE_SIZE * 2);
+    p_player_2_.set_y_pos_(SCREEN_HEIGHT - TILE_SIZE * 2);
     p_player_2_.SetClip();
 
     bool isQuit = false;
