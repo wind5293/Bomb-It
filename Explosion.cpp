@@ -29,9 +29,9 @@ void ExplosionObject::setClip()
 {
     if (frame_width_ > 0 && frame_height_ > 0)
     {
-        for (int i = 0; i < 64; i++)
+        for (int i = 0; i < 8; i++)
         {
-            frame_clip_[i].x = frame_width_ * (i / 8);
+            frame_clip_[i].x = frame_width_ * i;
             frame_clip_[i].y = 0;
             frame_clip_[i].w = frame_width_;
             frame_clip_[i].h = frame_height_;
