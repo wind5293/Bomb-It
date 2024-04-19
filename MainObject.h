@@ -2,39 +2,55 @@
 #define MAIN_OBJECT_H_
 
 #include <vector>
-#include "commonFile.h"
-#include "baseObject.h"
-#include "BombObject.h"
 
-class MainObject : public baseObject
+#include "commonFile.h"
+#include "BaseObject.h"
+#include "BulletObject.h"
+
+
+class mainObject : public BaseObject
 {
 public:
-    MainObject();
-    ~MainObject();
+    mainObject();
+    ~mainObject();
 
-    enum WalkType
+    enum WALK_TYPE
     {
+        WALK_NONE = -1,
+        WALK_RIGHT = 0,
         WALK_LEFT = 1,
-        WALK_RIGHT = 2,
-        WALK_UP = 3,
-        WALK_DOWN = 4,
     };
+
     bool loadMedia(std::string path, SDL_Renderer* renderer);
     void Show(SDL_Renderer* renderer);
-    void HandleInputAction(SDL_Event events, SDL_Renderer* renderer);
-    void SetClip();
+    void handleInputAction(SDL_Event events, SDL_Renderer* renderer);
+    void setClip();
 
-    void doPlayer(Map& map_data_);
-    void checkToMap(Map& map_data_);
+    void doPlayer(Map& map_data);
+    void checkToMap(Map& map_data);
+    void setMapXY(const int map_x, const int map_y) {map_x_ = map_x; map_y_ = map_y;};
+    void CenterEntityOnMap(Map& map_data);
     void updateImagePlayer(SDL_Renderer* renderer);
 
-    void set_x_pos_(float xPos) {x_pos_ = xPos;}
-    void set_y_pos_(float yPos) {y_pos_ = yPos;}
+    SDL_Rect get_rect_frame();
 
-    int get_width_frame_() {return width_frame_;}
-    int get_height_frame_() {return height_frame_;}
+    void set_bullet_list_ (std::vector<BulletObject*> bullet_list_)
+    {
+        p_bullet_list_ = bullet_list_;
+    }
+    std::vector<BulletObject*> get_bullet_object() const { return p_bullet_list_; }
 
-protected:
+    void HandleBullet(SDL_Renderer* renderer);
+    void removeBullet(const int& i);
+
+    void increaseMoney();
+
+    void setComeBackTime(const int& cb_t) {come_back_time_ = cb_t;}
+
+    int getCollectedMoney() const {return money_collected;}
+
+private:
+    std::vector<BulletObject*> p_bullet_list_;
     float x_val_;
     float y_val_;
 
@@ -48,6 +64,14 @@ protected:
     Input input_type_;
     int frame_;
     int status_;
+
+    bool on_ground_ = false;
+
+    int map_x_;
+    int map_y_;
+    int come_back_time_;
+
+    int money_collected;
 };
 
-#endif // MAIN_OBJECT_H_
+#endif // MAIN_OBJECT_H

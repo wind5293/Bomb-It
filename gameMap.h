@@ -2,11 +2,11 @@
 #define GAME_MAP_H_
 
 #include "commonFile.h"
-#include "baseObject.h"
+#include "BaseObject.h"
 
 #define MAX_TILES 20
 
-class tileMat : public baseObject
+class tileMat : public BaseObject
 {
 public:
     tileMat() {;}
@@ -22,8 +22,9 @@ public:
     void loadMap(char* name);
     void loadTile(SDL_Renderer* renderer);
     void drawMap(SDL_Renderer* renderer);
+    Map getMap() const {return game_map_;};
+    void setMap(Map& map_data) {game_map_ = map_data;};
 
-    Map getMap() const {return game_map_;}
 private:
     Map game_map_;
     tileMat tile_mat[MAX_TILES];

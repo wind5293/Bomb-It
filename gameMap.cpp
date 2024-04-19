@@ -1,14 +1,14 @@
 #include <iostream>
-#include <fstream>
 #include "gameMap.h"
+#include <fstream>
 
 void gameMap::loadMap(char* name)
 {
     std::ifstream fp;
     fp.open(name);
-
     if (!fp.is_open())
     {
+        //std::cout << "Could not open file!\n";
         return;
     }
 
@@ -21,12 +21,13 @@ void gameMap::loadMap(char* name)
             fp >> game_map_.tile[i][j];
             int val = game_map_.tile[i][j];
             //std::cout << val << " ";
-            if (val > 0)
-            {
-                if (j > game_map_.max_x_)
+            if (val > 0){
+                if (j > game_map_.max_x_){
                     game_map_.max_x_ = j;
-                if (i > game_map_.max_y_)
+                }
+                if (i > game_map_.max_y_){
                     game_map_.max_y_ = i;
+                }
             }
         }
         //std::cout << std::endl;
@@ -34,31 +35,32 @@ void gameMap::loadMap(char* name)
     game_map_.max_x_ = (game_map_.max_x_ + 1) * TILE_SIZE;
     game_map_.max_y_ = (game_map_.max_y_ + 1) * TILE_SIZE;
 
-    //std::cout << game_map_.max_x_ << " " << game_map_.max_y_ << std::endl;
-
     game_map_.start_x_ = 0;
     game_map_.start_y_ = 0;
-
     game_map_.fileName = name;
+
     fp.close();
 }
 
 void gameMap::loadTile(SDL_Renderer* renderer)
 {
-    char fileIMG[50];
+    char fileImg[50];
     FILE* fp = NULL;
+    //std::ifstream fp;
 
     for (int i = 0; i < MAX_TILES; i++)
     {
-        sprintf_s(fileIMG, "map/%d.png", i);
+        sprintf_s(fileImg, "map/%d.png", i);
+        //std::cout << fileImg << std::endl;
 
-        fopen_s(&fp, fileIMG, "rb");
+        fopen_s(&fp, fileImg, "rb");
         if (fp == NULL)
         {
             continue;
         }
         fclose(fp);
-        tile_mat[i].loadMedia(fileIMG, renderer);
+
+        tile_mat[i].loadMedia(fileImg, renderer);
     }
 }
 
@@ -88,16 +90,14 @@ void gameMap::drawMap(SDL_Renderer* renderer) //Wrong something here
         for (int j = x1; j < x2; j += TILE_SIZE)
         {
             int val = game_map_.tile[map_y][map_x];
-            //std::cout << map_y << " " << map_x << " ";
-            if (val >= 1)
+            //std::cout << val << " ";
+            if (val > 0)
             {
                 tile_mat[val].setRect(j, i);
                 tile_mat[val].render(renderer);
             }
             map_x++;
         }
-        //std::cout << std::endl;
         map_y++;
     }
 }
-
