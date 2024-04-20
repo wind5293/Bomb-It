@@ -133,7 +133,7 @@ void mainObject::Show(SDL_Renderer* renderer)
     }
 }
 
-void mainObject::handleInputAction(SDL_Event events, SDL_Renderer* renderer)
+void mainObject::handleInputAction(SDL_Event events, SDL_Renderer* renderer, Mix_Chunk* bullet_sound)
 {
     if (events.type == SDL_KEYDOWN)
     {
@@ -203,11 +203,13 @@ void mainObject::handleInputAction(SDL_Event events, SDL_Renderer* renderer)
             {
                 p_bullet->set_bullet_direct(BulletObject::DIRECT_LEFT);
                 p_bullet->setRect(this->rect_.x, this->rect_.y + height_frame_ * 0.17);
+                Mix_PlayChannel(-1, bullet_sound, 0);
             }
             else
             {
                 p_bullet->set_bullet_direct(BulletObject::DIRECT_RIGHT);
                 p_bullet->setRect(this->rect_.x + width_frame_ - 20, this->rect_.y + height_frame_ * 0.17);
+                Mix_PlayChannel(-1, bullet_sound, 0);
             }
             p_bullet->set_x_val(20);
             p_bullet->set_y_val(20);
@@ -243,7 +245,7 @@ void mainObject::HandleBullet(SDL_Renderer* renderer)
     }
 }
 
-void mainObject::doPlayer(Map& map_data)
+void mainObject::doPlayer(Map& map_data, Mix_Chunk* collect_money)
 {
     if (come_back_time_ == 0)
     {
@@ -275,7 +277,7 @@ void mainObject::doPlayer(Map& map_data)
         }
 
         //Xu li va cham
-        checkToMap(map_data);
+        checkToMap(map_data, collect_money);
         CenterEntityOnMap(map_data);
     }
     else {
@@ -321,7 +323,7 @@ void mainObject::CenterEntityOnMap(Map& map_data)
     }
 }
 
-void mainObject::checkToMap(Map& map_data)
+void mainObject::checkToMap(Map& map_data, Mix_Chunk* collect_money)
 {
     int x1 = 0;
     int x2 = 0;
@@ -350,6 +352,7 @@ void mainObject::checkToMap(Map& map_data)
                 map_data.tile[y1][x2] = BLANK_TILE;
                 map_data.tile[y2][x2] = BLANK_TILE;
                 increaseMoney();
+                Mix_PlayChannel(-1, collect_money, 0);
             }
             else {
                 if (val1 != BLANK_TILE || val2 != BLANK_TILE)
@@ -370,6 +373,7 @@ void mainObject::checkToMap(Map& map_data)
                 map_data.tile[y1][x1] = BLANK_TILE;
                 map_data.tile[y2][x1] = BLANK_TILE;
                 increaseMoney();
+                Mix_PlayChannel(-1, collect_money, 0);
             }
             else if (val1 != BLANK_TILE || val2 != BLANK_TILE)
             {
@@ -399,6 +403,7 @@ void mainObject::checkToMap(Map& map_data)
                 map_data.tile[y2][x1] = BLANK_TILE;
                 map_data.tile[y2][x2] = BLANK_TILE;
                 increaseMoney();
+                Mix_PlayChannel(-1, collect_money, 0);
             }
             else if (val1 != BLANK_TILE || val2 != BLANK_TILE)
             {
@@ -424,6 +429,7 @@ void mainObject::checkToMap(Map& map_data)
                 map_data.tile[y1][x1] = BLANK_TILE;
                 map_data.tile[y1][x2] = BLANK_TILE;
                 increaseMoney();
+                Mix_PlayChannel(-1, collect_money, 0);
             }
             else if (val1 != BLANK_TILE || val2 != BLANK_TILE)
             {

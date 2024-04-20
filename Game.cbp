@@ -33,6 +33,8 @@
 		</Compiler>
 		<Unit filename="BombObject.cpp" />
 		<Unit filename="BombObject.h" />
+		<Unit filename="BulletObject.cpp" />
+		<Unit filename="BulletObject.h" />
 		<Unit filename="ImpTimer.cpp" />
 		<Unit filename="ImpTimer.h" />
 		<Unit filename="baseObject.cpp" />

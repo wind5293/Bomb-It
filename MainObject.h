@@ -23,11 +23,11 @@ public:
 
     bool loadMedia(std::string path, SDL_Renderer* renderer);
     void Show(SDL_Renderer* renderer);
-    void handleInputAction(SDL_Event events, SDL_Renderer* renderer);
+    void handleInputAction(SDL_Event events, SDL_Renderer* renderer, Mix_Chunk* bullet_sound);
     void setClip();
 
-    void doPlayer(Map& map_data);
-    void checkToMap(Map& map_data);
+    void doPlayer(Map& map_data, Mix_Chunk* collect_money);
+    void checkToMap(Map& map_data, Mix_Chunk* collect_money);
     void setMapXY(const int map_x, const int map_y) {map_x_ = map_x; map_y_ = map_y;};
     void CenterEntityOnMap(Map& map_data);
     void updateImagePlayer(SDL_Renderer* renderer);

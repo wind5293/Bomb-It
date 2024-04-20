@@ -51,6 +51,12 @@ bool init()
                     std::cout << "SDL_image could not initialize! SDL error: " << SDL_GetError() << std::endl;
                     success = false;
                 }
+
+                if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+                {
+                    std::cout << "SDL_mixer could not initialize! SDL_Mixer error: " << Mix_GetError();
+                    success = false;
+                }
             }
 
             if (TTF_Init() == -1)
@@ -64,6 +70,7 @@ bool init()
             {
                 success = false;
             }
+
         }
     }
     return success;
@@ -77,6 +84,16 @@ bool loadBackground()
 
 void close()
 {
+    Mix_FreeChunk(g_sound_bullet[0]);
+    Mix_FreeChunk(g_sound_bullet[1]);
+    Mix_FreeChunk(g_sound_collect_money);
+    Mix_FreeChunk(g_sound_exp_main);
+
+    g_sound_bullet[0] = NULL;
+    g_sound_bullet[1] = NULL;
+    g_sound_exp_main = NULL;
+    g_sound_collect_money = NULL;
+
     gBackground.Quit();
 
     SDL_DestroyRenderer(gRenderer);
@@ -85,6 +102,7 @@ void close()
     SDL_DestroyWindow(gWindow);
     gWindow = NULL;
 
+    Mix_Quit();
     IMG_Quit();
     SDL_Quit();
 }
@@ -189,6 +207,14 @@ int main(int argc, char* argv[])
     TextObject money_game;
     money_game.setColor(TextObject::BLACK_TEXT);
 
+    g_sound_bullet[0] = Mix_LoadWAV("game_resource/Fire.wav");
+    g_sound_bullet[1] = Mix_LoadWAV("game_resource/Fire1.wav");
+    g_sound_exp_main = Mix_LoadWAV("game_resource/Explosion+1.wav");
+    g_sound_collect_money = Mix_LoadWAV("game_resource/beep_.wav");
+    g_sound_background = Mix_LoadWAV("game_resource/backsound.wav");
+
+
+    Mix_PlayChannel(-1, g_sound_background, 1);
     bool isQuit = false;
     SDL_Event e;
     while (!isQuit){
@@ -200,9 +226,7 @@ int main(int argc, char* argv[])
             {
                 isQuit = true;
             }
-            std::cout << "e.type: " << e.type << std::endl;
-            p_player.handleInputAction(e, gRenderer);
-
+            p_player.handleInputAction(e, gRenderer, g_sound_bullet[0]);
         }
         SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderClear(gRenderer);
@@ -212,7 +236,7 @@ int main(int argc, char* argv[])
 
         p_player.HandleBullet(gRenderer);
         p_player.setMapXY(map_data.start_x_, map_data.start_y_);
-        p_player.doPlayer(map_data);
+        p_player.doPlayer(map_data, g_sound_collect_money);
         p_player.Show(gRenderer);
 
         game_map.setMap(map_data);
@@ -313,6 +337,7 @@ int main(int argc, char* argv[])
                                 exp_main.setRect(x_pos, y_pos);
                                 exp_main.Show(gRenderer);
                             }
+                            Mix_PlayChannel(-1, g_sound_exp_main, 0);
                             p_player.removeBullet(r);
                             obj_threat->Quit();
                             threats_list.erase(threats_list.begin() + t);
