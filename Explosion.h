@@ -3,11 +3,11 @@
 #define EXPLOSION_H_
 
 #include "commonFile.h"
-#include "baseObject.h"
+#include "BaseObject.h"
 
-#define NUM_FRAME_EXP 64
+#define NUM_FRAME_EXP 16
 
-class ExplosionObject : public baseObject
+class ExplosionObject : public BaseObject
 {
 public:
     ExplosionObject();

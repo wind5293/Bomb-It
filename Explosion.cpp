@@ -16,7 +16,7 @@ ExplosionObject::~ExplosionObject()
 
 bool ExplosionObject::loadMedia(std::string path, SDL_Renderer* renderer)
 {
-    bool ret = baseObject::loadMedia(path, renderer);
+    bool ret = BaseObject::loadMedia(path, renderer);
     if (ret)
     {
         frame_width_ = rect_.w / 8;
@@ -29,9 +29,9 @@ void ExplosionObject::setClip()
 {
     if (frame_width_ > 0 && frame_height_ > 0)
     {
-        for (int i = 0; i < 64; i++)
+        for (int i = 0; i < NUM_FRAME_EXP; i++)
         {
-            frame_clip_[i].x = frame_width_ * (i / 8);
+            frame_clip_[i].x = frame_width_ * (i / 2);
             frame_clip_[i].y = 0;
             frame_clip_[i].w = frame_width_;
             frame_clip_[i].h = frame_height_;

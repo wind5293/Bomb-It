@@ -1,0 +1,135 @@
+# depslib dependency file v1.0
+1709780330 source:c:\users\hp victus\desktop\new folder\game\commonfile.cpp
+	<iostream>
+	"commonFile.h"
+
+1709794609 c:\users\hp victus\desktop\new folder\game\commonfile.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	<string>
+
+1709795453 source:c:\users\hp victus\desktop\new folder\game\main.cpp
+	<iostream>
+	"commonFile.h"
+	"BaseObject.h"
+
+1709780330 c:\users\hp victus\desktop\new folder\game\commonfile.cpp
+	<iostream>
+	"commonFile.h"
+
+1709781675 c:\users\hp victus\desktop\new folder\game\baseobject.cpp
+	<iostream>
+	"BaseObject.h"
+
+1709795151 c:\users\hp victus\desktop\new folder\game\baseobject.h
+	"commonFile.h"
+
+1709795157 source:c:\users\hp victus\desktop\new folder\game\baseobject.cpp
+	<iostream>
+	"BaseObject.h"
+
+1710229582 source:c:\users\hp victus\desktop\new folder\makingagame\baseobject.cpp
+	<iostream>
+	"commonFile.h"
+	"BaseObject.h"
+
+1710065374 c:\users\hp victus\desktop\new folder\makingagame\baseobject.h
+	"commonFile.h"
+
+1713596503 c:\users\hp victus\desktop\new folder\makingagame\commonfile.h
+	<iostream>
+	<windows.h>
+	<string>
+	<vector>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1710854829 source:c:\users\hp victus\desktop\new folder\makingagame\commonfile.cpp
+	<iostream>
+	"commonFile.h"
+
+1713586535 source:c:\users\hp victus\desktop\new folder\makingagame\main.cpp
+	<iostream>
+	"commonFile.h"
+	"BaseObject.h"
+	"gameMap.h"
+	"mainObject.h"
+	"ImpTimer.h"
+	"ThreatsObject.h"
+	"Explosion.h"
+	"TextObject.h"
+	"PlayPower.h"
+
+1710899152 source:c:\users\hp victus\desktop\new folder\makingagame\gamemap.cpp
+	<iostream>
+	"gameMap.h"
+	<fstream>
+
+1710211925 c:\users\hp victus\desktop\new folder\makingagame\gamemap.h
+	"commonFile.h"
+	"BaseObject.h"
+
+1713596084 c:\users\hp victus\desktop\new folder\makingagame\mainobject.h
+	<vector>
+	"commonFile.h"
+	"BaseObject.h"
+	"BulletObject.h"
+
+1713596084 source:c:\users\hp victus\desktop\new folder\makingagame\mainobject.cpp
+	<iostream>
+	"mainObject.h"
+
+1710821633 source:c:\users\hp victus\desktop\new folder\makingagame\imptimer.cpp
+	<iostream>
+	"ImpTimer.h"
+
+1710166406 c:\users\hp victus\desktop\new folder\makingagame\imptimer.h
+	"commonFile.h"
+
+1710850377 source:c:\users\hp victus\desktop\new folder\makingagame\bulletobject.cpp
+	<iostream>
+	"BulletObject.h"
+
+1710850370 c:\users\hp victus\desktop\new folder\makingagame\bulletobject.h
+	"BaseObject.h"
+	"commonFile.h"
+
+1710857183 source:c:\users\hp victus\desktop\new folder\makingagame\threatsobject.cpp
+	<iostream>
+	"ThreatsObject.h"
+
+1710857183 c:\users\hp victus\desktop\new folder\makingagame\threatsobject.h
+	"commonFile.h"
+	"BaseObject.h"
+	"BulletObject.h"
+
+1713456206 source:c:\users\hp victus\desktop\new folder\makingagame\explosion.cpp
+	<iostream>
+	"Explosion.h"
+
+1713456193 c:\users\hp victus\desktop\new folder\makingagame\explosion.h
+	"commonFile.h"
+	"BaseObject.h"
+
+1711113919 source:c:\users\hp victus\desktop\new folder\makingagame\textobject.cpp
+	<iostream>
+	"TextObject.h"
+
+1711113871 c:\users\hp victus\desktop\new folder\makingagame\textobject.h
+	"commonFile.h"
+
+1711120117 source:c:\users\hp victus\desktop\new folder\makingagame\playpower.cpp
+	<iostream>
+	"PlayPower.h"
+
+1711120106 c:\users\hp victus\desktop\new folder\makingagame\playpower.h
+	"commonFile.h"
+	"BaseObject.h"
+
+1713542347 source:c:\users\hp victus\desktop\new folder\makingagame\button.cpp
+
