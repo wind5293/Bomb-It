@@ -61,7 +61,9 @@ typedef struct Input
 
 namespace SDLCommonFunc
 {
+    int Menu(SDL_Renderer* renderer, TTF_Font* font);
     bool CheckCollision(const SDL_Rect& object1, const SDL_Rect& object2);
+    // SDL_Surface* LoadImg(std::string path);
 }
 
 #endif // COMMONFILE

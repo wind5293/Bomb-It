@@ -43,6 +43,7 @@ void BaseObject::render(SDL_Renderer* renderer, const SDL_Rect* clip /* = NULL *
     SDL_Rect renderquad = {rect_.x, rect_.y, rect_.w, rect_.h};
 
     SDL_RenderCopy(renderer, p_object_, clip, &renderquad);
+    std::cout << "Rendered!" << std::endl;
 }
 
 void BaseObject::Quit()

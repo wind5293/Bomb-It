@@ -214,9 +214,16 @@ int main(int argc, char* argv[])
     g_sound_background = Mix_LoadWAV("game_resource/backsound.wav");
 
 
-    Mix_PlayChannel(-1, g_sound_background, 1);
     bool isQuit = false;
     SDL_Event e;
+
+    int ret_menu = SDLCommonFunc::Menu(gRenderer, gFont_time);
+    if (ret_menu == 1)
+    {
+        isQuit = true;
+    }
+    Mix_PlayChannel(-1, g_sound_background, 1);
+
     while (!isQuit){
         fps_timer.start();
 

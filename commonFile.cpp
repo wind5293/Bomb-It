@@ -1,5 +1,7 @@
 #include <iostream>
 #include "commonFile.h"
+#include "BaseObject.h"
+#include "TextObject.h"
 
 bool SDLCommonFunc::CheckCollision(const SDL_Rect& object1, const SDL_Rect& object2)
 {
@@ -87,3 +89,70 @@ bool SDLCommonFunc::CheckCollision(const SDL_Rect& object1, const SDL_Rect& obje
 
     return false;
 }
+
+//SDL_Surface* SDLCommonFunc::LoadImg(std::string path)
+//{
+//    SDL_Surface* load_image = NULL;
+//    SDL_Surface
+//}
+
+int SDLCommonFunc::Menu(SDL_Renderer* renderer, TTF_Font* font)
+{
+    BaseObject MenuObject;
+
+    bool loadImageOK = MenuObject.loadMedia("img\\background1.png", renderer);
+    if (loadImageOK == false)
+    {
+        return 1;
+    }
+
+    const int kMenuItemNum = 2;
+    SDL_Rect pos_arr[kMenuItemNum];
+    pos_arr[0].x = 560;
+    pos_arr[0].y = 400;
+
+    pos_arr[1].x = 200;
+    pos_arr[1].y = 200;
+
+    TextObject text_menu[kMenuItemNum];
+    text_menu[0].setText("Touch to play");
+    text_menu[0].loadFromRenderText(font, renderer);
+    text_menu[0].setColor(TextObject::BLACK_TEXT);
+
+    text_menu[1].setText("Exit");
+    text_menu[1].setColor(TextObject::WHITE_TEXT);
+
+    bool selected[kMenuItemNum] = {0, 0};
+    SDL_Event event;
+
+    int xm;
+    int ym;
+
+    while (true)
+    {
+        MenuObject.render(renderer);
+
+        text_menu[0].RenderText(renderer, pos_arr[0].x, pos_arr[0].y);
+        while (SDL_PollEvent(&e))
+        {
+            switch (e.type)
+            {
+            case SDL_QUIT:
+                return 1;
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                if (e.button.button == SDL_BUTTON_LEFT)
+                    return 0;
+                break;
+            default:
+                break;
+            }
+        }
+
+        SDL_RenderPresent(renderer);
+    }
+
+    return 1;
+}
+
+
