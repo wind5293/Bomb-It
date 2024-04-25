@@ -49,6 +49,9 @@ public:
 
     int getCollectedMoney() const {return money_collected;}
 
+    float get_x_pos_() const {return x_pos_;}
+    float get_y_pos_() const {return y_pos_;}
+
 private:
     std::vector<BulletObject*> p_bullet_list_;
     float x_val_;

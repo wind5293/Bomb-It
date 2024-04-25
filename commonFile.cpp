@@ -96,33 +96,27 @@ bool SDLCommonFunc::CheckCollision(const SDL_Rect& object1, const SDL_Rect& obje
 //    SDL_Surface
 //}
 
-int SDLCommonFunc::Menu(SDL_Renderer* renderer, TTF_Font* font)
+int SDLCommonFunc::Hello(SDL_Renderer* renderer, TTF_Font* font)
 {
     BaseObject MenuObject;
 
-    bool loadImageOK = MenuObject.loadMedia("img\\background1.png", renderer);
+    bool loadImageOK = MenuObject.loadMedia("img\\background.png", renderer);
     if (loadImageOK == false)
     {
         return 1;
     }
 
-    const int kMenuItemNum = 2;
+    const int kMenuItemNum = 1;
     SDL_Rect pos_arr[kMenuItemNum];
     pos_arr[0].x = 560;
-    pos_arr[0].y = 400;
-
-    pos_arr[1].x = 200;
-    pos_arr[1].y = 200;
+    pos_arr[0].y = 500;
 
     TextObject text_menu[kMenuItemNum];
     text_menu[0].setText("Touch to play");
+    text_menu[0].setColor(TextObject::WHITE_TEXT);
     text_menu[0].loadFromRenderText(font, renderer);
-    text_menu[0].setColor(TextObject::BLACK_TEXT);
 
-    text_menu[1].setText("Exit");
-    text_menu[1].setColor(TextObject::WHITE_TEXT);
-
-    bool selected[kMenuItemNum] = {0, 0};
+    bool selected[kMenuItemNum] = {0};
     SDL_Event event;
 
     int xm;
@@ -155,4 +149,85 @@ int SDLCommonFunc::Menu(SDL_Renderer* renderer, TTF_Font* font)
     return 1;
 }
 
+int SDLCommonFunc::Tutorial(SDL_Renderer* renderer, TTF_Font* font)
+{
+    BaseObject MenuObject;
+
+    bool loadImageOK = MenuObject.loadMedia("img\\background.png", renderer);
+    if (loadImageOK == false)
+    {
+        return 1;
+    }
+
+    SDL_Rect pos_arr;
+    pos_arr.x = 530;
+    pos_arr.y = 400;
+
+
+    TextObject text_menu;
+    text_menu.setText("CLICK HERE TO PLAY");
+    text_menu.setColor(TextObject::BLACK_TEXT);
+    text_menu.loadFromRenderText(font, renderer);
+
+    bool selected = 0;
+    SDL_Event event;
+
+    int xm;
+    int ym;
+
+    while (true)
+    {
+        MenuObject.render(renderer);
+        text_menu.RenderText(renderer, pos_arr.x, pos_arr.y);
+
+        while (SDL_PollEvent(&event))
+        {
+            switch(event.type)
+            {
+            case SDL_QUIT:
+                return 1;
+                break;
+            case SDL_MOUSEMOTION:
+                xm = e.motion.x;
+                ym = e.motion.y;
+
+                if (xm >= pos_arr.x && xm < pos_arr.x + text_menu.getWidth() &&
+                    ym >= pos_arr.y && ym < pos_arr.y + text_menu.getHeight() )
+                {
+                    if (selected == false)
+                    {
+                        selected = true;
+                        std::cout << 1 << std::endl;
+                        text_menu.setColor(TextObject::RED_TEXT);
+                        text_menu.loadFromRenderText(font, renderer);
+                    }
+                }
+                else
+                {
+                    if (selected == true)
+                    {
+                        selected = false;
+                        text_menu.setColor(TextObject::WHITE_TEXT);
+                        text_menu.loadFromRenderText(font, renderer);
+                    }
+                }
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                xm = e.button.x;
+                ym = e.button.y;
+
+                if (xm >= pos_arr.x && xm < pos_arr.x + text_menu.getWidth() &&
+                    ym >= pos_arr.y && ym < pos_arr.y + text_menu.getHeight() )
+                {
+                    return 0;
+                }
+                break;
+            default:
+                break;
+            }
+        }
+        SDL_RenderPresent(renderer);
+    }
+    return 1;
+}
 

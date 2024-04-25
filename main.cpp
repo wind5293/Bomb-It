@@ -111,8 +111,8 @@ std::vector<ThreatsObject*> MakeThreadList()
 {
     std::vector<ThreatsObject*> list_threats_;
 
-    ThreatsObject* dynamic_threats = new ThreatsObject[20];
-    for (int i = 0; i < 20; i++)
+    ThreatsObject* dynamic_threats = new ThreatsObject[30];
+    for (int i = 0; i < 30; i++)
     {
         ThreatsObject* p_threat = (dynamic_threats + i);
         if (p_threat != NULL)
@@ -133,9 +133,9 @@ std::vector<ThreatsObject*> MakeThreadList()
     }
 
 
-    ThreatsObject* threats_objects_ = new ThreatsObject[20];
+    ThreatsObject* threats_objects_ = new ThreatsObject[55];
 
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < 55; i++)
     {
         ThreatsObject* p_threat_ = (threats_objects_ + i);
         if (p_threat_ != NULL)
@@ -217,12 +217,18 @@ int main(int argc, char* argv[])
     bool isQuit = false;
     SDL_Event e;
 
-    int ret_menu = SDLCommonFunc::Menu(gRenderer, gFont_time);
+    Mix_PlayChannel(-1, g_sound_background, 1);
+    int ret_menu = SDLCommonFunc::Hello(gRenderer, gFont_time);
     if (ret_menu == 1)
     {
         isQuit = true;
     }
-    Mix_PlayChannel(-1, g_sound_background, 1);
+
+//    int tutorial = SDLCommonFunc::Tutorial(gRenderer, gFont_time);
+//    if (tutorial == 1)
+//    {
+//        isQuit = true;
+//    }
 
     while (!isQuit){
         fps_timer.start();
@@ -401,6 +407,18 @@ int main(int argc, char* argv[])
         {
             int delay_time = time_one_flame - real_imp_time;
             SDL_Delay(delay_time);
+        }
+
+        if (p_player.get_x_pos_() >= MAX_MAP_X * TILE_SIZE - TILE_SIZE)
+        {
+            int result = MessageBoxW(NULL, L"YOU WIN", L"Info", MB_OK | MB_ICONSTOP);
+            if (result == IDOK)
+            {
+                close();
+                SDL_Quit();
+
+                return 0;
+            }
         }
     }
 
