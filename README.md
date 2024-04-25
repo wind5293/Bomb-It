@@ -10,16 +10,18 @@ Trên màn hình chỉ việc click vào là có thể vào game
 
 - Sử dụng các phím mũi tên **lên**, **xuống**, **trái**, **phải** để di chuyển nhân vật
 - Sử dụng phím **SPACE** để bắn đạn vào kẻ thù
+- Thu thập tiền vàng
+- Tới đích để chiến thắng
 
 # Về các thành phần của game
 
 ## Các thành phần trong game
-|Thành phần game       |                        |
-|:---                  |                    :---|
+|Thành phần game       | Chức năng             |
+|:---                  | :---                     |
 |![Player](img/player_pw.png)|  Nhân vật điều khiển           |
-|![Enemies](img/thread.png)| Quái 
-|![Enemies2](img/thread2.png)| Another quái |
-|![Money](map/money.png)| Tiền |
+|![Enemies](img/threat.png)| Quái 
+|![Enemies2](img/threat2.png)| Another quái |
+|![Money](map/4.png)| Tiền |
 
 
 ## Source code
@@ -40,7 +42,9 @@ Trên màn hình chỉ việc click vào là có thể vào game
 
 ## Mã nguồn mở đã tham khảo
 [LazyFooProduction](lazyfoo.net)
+
 [Phattrienphanmem123AZ](youtube.com/https://www.youtube.com/@PhatTrienPhanMem123AZ)
+
 [Madsycode](https://www.youtube.com/@Madsycode)
 
 
