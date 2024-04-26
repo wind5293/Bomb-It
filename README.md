@@ -1,5 +1,7 @@
 # Contra
 
+[Video giới thiệu](https://drive.google.com/file/d/1X12tSxkFBFAL4Nz2USJbR8aSkabiJoBF/view?usp=drive_link)
+
 # Giới thiệu
 Contra là 1 thể loại game nhập vai 2d nổi tiếng cho phép người chơi tấn côn vào các quái vật trên đường đi và đến đích. Đây là 1 phiên bản đơn giản của tựa game trên.
 
